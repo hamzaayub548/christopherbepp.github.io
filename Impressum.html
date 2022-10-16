@@ -1,0 +1,288 @@
+<!-- {{ define "main" }}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="text-center">
+        <img style="background-color: #590b07;" src="images/Andrea Walz Reitausbildung.png">
+        {{ with .Params.subtitle }}
+        <h2 class="text-secondary h3">{{ . }}</h2>
+        {{ end }}
+      </div>
+      {{ .Content }}
+    </div>
+  </div>
+</div>
+{{ end }} -->
+
+<html lang="en">
+
+<head>
+  <style>
+    h1 {
+      font-size: 45px;
+      padding-left: 10%;
+    }
+
+    p {
+      font-size: 20px;
+      padding-left: 10%;
+      line-height: 32px;
+
+    }
+
+    .menu2 {
+      text-decoration: none;
+      color: #fff;
+      font-size: 17px;
+      display: list-item;
+      list-style: none;
+      padding: 10px 20px 10px 10px;
+      border: 1px solid #280c08;
+      color: #ccb549;
+      background-color: #280c08;
+      margin-top: 4%;
+    }
+
+    .menu2:hover {
+      background-color: white;
+      color: black;
+    }
+
+    .app {
+      display: flex;
+      min-height: 100vh;
+
+    }
+
+    .sidebar {
+      flex: 1 1 0;
+      max-width: 300px;
+      padding: 2rem 1rem;
+      background-color: #590b07;
+    }
+
+    .sidebar .menu {
+      margin: 0 -1rem;
+
+    }
+
+    .sidebar .menu .menu-item {
+      display: block;
+      padding: 1rem;
+      color: #FFF;
+      text-decoration: none;
+      transition: 0.2s linear;
+    }
+
+    .sidebar .menu .menu-item:hover,
+    .sidebar .menu .menu-item.is-active {
+      color: #ff8700;
+      background-color: #280c08;
+      border-right: 5px solid #ff8700;
+    }
+
+    .content {
+      flex: 1 1 0;
+      padding: 2rem;
+    }
+
+    .content h1 {
+      color: #cc9900;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .content p {
+      color: #ccb549;
+    }
+
+    .menu-toggle {
+      display: none;
+      position: fixed;
+      top: 9rem;
+      right: 1.2rem;
+      width: 60px;
+      height: 60px;
+      border-radius: 99px;
+      background-color: #590b07;
+      cursor: pointer;
+    }
+
+    .hamburger {
+      position: relative;
+      top: calc(50% - 2px);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 32px;
+    }
+
+    .hamburger>span,
+    .hamburger>span::before,
+    .hamburger>span::after {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      border-radius: 99px;
+      background-color: #FFF;
+      transition-duration: .25s;
+    }
+
+    .hamburger>span::before {
+      content: '';
+      top: -8px;
+    }
+
+    .hamburger>span::after {
+      content: '';
+      top: 8px;
+    }
+
+    .menu-toggle.is-active .hamburger>span {
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle.is-active .hamburger>span::before {
+      top: 0;
+      transform: rotate(0deg);
+    }
+
+    .menu-toggle.is-active .hamburger>span::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+
+    @media (max-width: 1024px) {
+      .sidebar {
+        max-width: 200px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .content {
+        padding-top: 8rem;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -340px;
+        height: 100vh;
+        width: 100%;
+        max-width: 300px;
+        transition: 0.2s linear;
+      }
+
+      .sidebar.is-active {
+        left: 0;
+      }
+    }
+
+    .cards {
+      background-color: black;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      box-sizing: border-box;
+    }
+
+    .card {
+      background-color: black;
+      color: white;
+      padding: 1rem;
+      height: 2rem;
+      margin-top: 1%;
+
+    }
+
+    @media (min-width: 600px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .btn1 {
+      text-decoration: none;
+      color: white;
+      background-color: #5cb85c;
+      border: 1px solid #5cb85c;
+      padding: 10px 10px 10px 10px;
+      margin: 0px 10px 0px 10px;
+
+    }
+  </style>
+</head>
+
+<body style="padding: 0px; margin: 0px; background-color: #f4e07d;">
+  <div style="background-color: #590b07">
+    <img style="width: 92%; margin-left: 4%; margin-right: 4%;" src="images/Andrea Walz Reitausbildung.png">
+  </div>
+  <div class="app" style="width: 92%; margin-right: 4%; margin-left: 4%;">
+    <div class="menu-toggle">
+      <div class="hamburger">
+        <span></span>
+      </div>
+    </div>
+    <aside class="sidebar">
+      <nav class="menu">
+        <a href="http://localhost:1313/" class="menu-item">Home</a>
+        <a href="http://localhost:1313/die-ecole-de-legerete.html" class="menu-item">Die École de Légèreté</a>
+        <a href="#" class="menu-item">Über mich</a>
+        <a href="#" class="menu-item">Unterricht</a>
+        <a href="#" class="menu-item">Fotogalerie</a>
+        <a href="#" class="menu-item">Termine</a>
+        <a href="#" class="menu-item">Interessantes</a>
+        <a href="#" class="menu-item">Links</a>
+        <a href="#" class="menu-item">Kontakt</a>
+        <a href="#" class="menu-item">Datenschutz</a>
+        <a href="#" class="menu-item is-active">Impressum</a>
+      </nav>
+
+    </aside>
+    <main class="content" style="background-color: #280c08;">
+      <h1>Impressum</h1>
+      <p>Impressum - Angaben gemäß § 5 TMG:</p>
+      <p>Andrea Walz</p>
+      <p>Liebfrauenberg 5</p>
+      <p>35423 Lich</p>
+      <p>Tel.: 06404 - 6577644</p>
+      <p>Telefon: 0173-9584261</p>
+      <p>E-Mail: reitausbildung@andreawalz.de</p>
+      <p>Steuernummer: 02049146887</p>
+      <p>Wir bedanken uns bei folgenden Fotografen für ihre Unterstützung:</p>
+      <p>© <a href="http://de.fotolia.com/id/4447601" style="text-decoration: none; color: #ff8700;">Terifrancis #4447601</a></p>
+      <p><b>Online-Streitbeilegung</b></p>
+      <p>Die Europäische Kommission stellt unter <a href="https://ec.europa.eu/consumers/odr/" style="text-decoration: none; color: #ff8700;">https://ec.europa.eu/consumers/odr/</a> eine Plattform zur Online-Streitbeilegung bereit, die Verbraucher für die Beilegung einer Streitigkeit nutzen können und auf der weitere Informationen zum Thema Streitschlichtung zu finden sind.</p>
+      <p><b>Außergerichtliche Streitbeilegung</b></p>
+      <p>Wir sind weder verpflichtet noch dazu bereit, im Falle einer Streitigkeit mit einem Verbraucher an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+      <p><b>Technische Umsetzung, Webdesign, Hosting:</b></p>
+      <p><b>INVIKOM ® zeig's im Internet</b></p>
+      <p><a href="http://www.invikom.de/" style="text-decoration: none; color: #ff8700;">Webseitengestaltung</a> , <a href="http://www.invikom.de/" style="text-decoration: none; color: #ff8700;">Webhosting</a> , <a href="http://www.invikom.de/" style="text-decoration: none; color: #ff8700;">Online Shops (OXID eSales)</a> , <a href="http://www.invikom.de/" style="text-decoration: none; color: #ff8700;">Typo3 Content Management Systeme</a> , <a href="http://www.invikom.de/" style="text-decoration: none; color: #ff8700;">Webportale</a></p>
+      <p><a href="http://www.andreawalz.de/" style="text-decoration: none; color: #ff8700;">info(at)hk.ag</a></p>
+      <p><a href="http://www.invikom.de/" style="text-decoration: none; color: #ff8700;">www.INVIKOM.de</a></p>
+      <p style="padding-top: 20%;">Andrea Walz Reitausbildung | Liebfrauenberg 5 | 35423 Lich | Tel: 06404-6577644 |</p>
+    </main>
+  </div>
+  <div class="cards">
+    <div class="card" style="text-align: center; font-size: 18px;">Diese Website verwendet Cookies.</div>
+    <div class="card"><a href="" class="btn1">Ok,einverstanden</a><a href="" class="btn1"
+        style="background-color: #ff8700; border: 1px solid #ff8700;">Unsere
+        Datenschutzerklärung</a></div>
+  </div>
+
+  <script>
+    const menu_toggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    menu_toggle.addEventListener('click', () => {
+      menu_toggle.classList.toggle('is-active');
+      sidebar.classList.toggle('is-active');
+    })
+  </script>
+</body>
+
+</html>

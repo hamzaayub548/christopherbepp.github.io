@@ -1,0 +1,338 @@
+<!-- {{ define "main" }}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="text-center">
+        <img style="background-color: #590b07;" src="images/Andrea Walz Reitausbildung.png">
+        {{ with .Params.subtitle }}
+        <h2 class="text-secondary h3">{{ . }}</h2>
+        {{ end }}
+      </div>
+      {{ .Content }}
+    </div>
+  </div>
+</div>
+{{ end }} -->
+
+<html lang="en">
+
+<head>
+    <style>
+        h1 {
+            font-size: 45px;
+            padding-left: 10%;
+        }
+
+        p {
+            font-size: 20px;
+            padding-left: 10%;
+            line-height: 32px;
+
+        }
+
+        .menu2 {
+            text-decoration: none;
+            color: #fff;
+            font-size: 17px;
+            display: list-item;
+            list-style: none;
+            padding: 10px 20px 10px 10px;
+            border: 1px solid #280c08;
+            color: #ccb549;
+            background-color: #280c08;
+            margin-top: 4%;
+        }
+
+        .menu2:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .app {
+            display: flex;
+            min-height: 100vh;
+
+        }
+
+        .sidebar {
+            flex: 1 1 0;
+            max-width: 300px;
+            padding: 2rem 1rem;
+            background-color: #590b07;
+        }
+
+        .sidebar .menu {
+            margin: 0 -1rem;
+
+        }
+
+        .sidebar .menu .menu-item {
+            display: block;
+            padding: 1rem;
+            color: #FFF;
+            text-decoration: none;
+            transition: 0.2s linear;
+        }
+
+        .sidebar .menu .menu-item:hover,
+        .sidebar .menu .menu-item.is-active {
+            color: #ff8700;
+            background-color: #280c08;
+            border-right: 5px solid #ff8700;
+        }
+
+        .content {
+            flex: 1 1 0;
+            padding: 2rem;
+        }
+
+        .content h1 {
+            color: #cc9900;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content p {
+            color: #ccb549;
+        }
+
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 9rem;
+            right: 1.2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 99px;
+            background-color: #590b07;
+            cursor: pointer;
+        }
+
+        .hamburger {
+            position: relative;
+            top: calc(50% - 2px);
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 32px;
+        }
+
+        .hamburger>span,
+        .hamburger>span::before,
+        .hamburger>span::after {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            border-radius: 99px;
+            background-color: #FFF;
+            transition-duration: .25s;
+        }
+
+        .hamburger>span::before {
+            content: '';
+            top: -8px;
+        }
+
+        .hamburger>span::after {
+            content: '';
+            top: 8px;
+        }
+
+        .menu-toggle.is-active .hamburger>span {
+            transform: rotate(45deg);
+        }
+
+        .menu-toggle.is-active .hamburger>span::before {
+            top: 0;
+            transform: rotate(0deg);
+        }
+
+        .menu-toggle.is-active .hamburger>span::after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                max-width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .content {
+                padding-top: 8rem;
+            }
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -340px;
+                height: 100vh;
+                width: 100%;
+                max-width: 300px;
+                transition: 0.2s linear;
+            }
+
+            .sidebar.is-active {
+                left: 0;
+            }
+        }
+
+        .cards {
+            background-color: black;
+            width: 100%;
+            margin: 0 auto;
+            display: grid;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background-color: black;
+            color: white;
+            padding: 1rem;
+            height: 2rem;
+            margin-top: 1%;
+
+        }
+
+        @media (min-width: 600px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .btn1 {
+            text-decoration: none;
+            color: white;
+            background-color: #5cb85c;
+            border: 1px solid #5cb85c;
+            padding: 10px 10px 10px 10px;
+            margin: 0px 10px 0px 10px;
+
+        }
+
+        .cards1 {
+            background-color: #280c08;
+            width: 100%;
+            margin: 0 auto;
+            display: grid;
+            box-sizing: border-box;
+        }
+
+        .card1 {
+            background-color: #280c08;
+            color: #ccb549;
+            padding: 1rem;
+            height: 25rem;
+            margin-top: 1%;
+            line-height: 32px;
+            font-size: 19px;
+        }
+
+        @media (min-width: 600px) {
+            .cards1 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .cards2 {
+            background-color: #280c08;
+            width: 100%;
+            margin: 0 auto;
+            display: grid;
+            box-sizing: border-box;
+
+        }
+
+        .card2 {
+            background-color: #280c08;
+            color: #ccb549;
+            padding: 1rem;
+            height: 31rem;
+            margin-top: 1%;
+            line-height: 32px;
+            font-size: 19px;
+        }
+
+        @media (min-width: 600px) {
+            .cards2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body style="padding: 0px; margin: 0px; background-color: #f4e07d;">
+    <div style="background-color: #590b07">
+        <img style="width: 92%; margin-left: 4%; margin-right: 4%;" src="images/Andrea Walz Reitausbildung.png">
+    </div>
+    <div class="app" style="width: 92%; margin-right: 4%; margin-left: 4%;">
+        <div class="menu-toggle">
+            <div class="hamburger">
+                <span></span>
+            </div>
+        </div>
+        <aside class="sidebar">
+            <nav class="menu">
+                <a href="http://localhost:1313/" class="menu-item ">Home</a>
+                <a href="http://localhost:1313/die-ecole-de-legerete.html" class="menu-item is-active">Die École de Légèreté</a>
+                <a href="#" class="menu-item ">Über mich</a>
+                <a href="#" class="menu-item">Unterricht</a>
+                <a href="#" class="menu-item">Fotogalerie</a>
+                <a href="#" class="menu-item">Termine</a>
+                <a href="#" class="menu-item">Interessantes</a>
+                <a href="#" class="menu-item">Links</a>
+                <a href="#" class="menu-item">Kontakt</a>
+                <a href="#" class="menu-item">Datenschutz</a>
+                <a href="#" class="menu-item">Impressum</a>
+            </nav>
+
+        </aside>
+        <main class="content" style="background-color: #280c08;">
+            <h1>Die Philosophie der École de Légèreté</h1>
+            <div class="cards1">
+                <div class="card1">Der Begriff der Légèreté (Leichtigkeit) ist derzeit sehr in Mode gekommen und wird
+                    für
+                    alles Mögliche benutzt, klar Definiertes läst sich dabei selten finden.<br>Die École de Légèreté
+                    wurde von Philippe Karl gegründet. Er entwickelte sie aufbauend auf viele Jahre der Arbeit rund um
+                    die Ausbildung von Pferden und vertiefte seine praktischen Erfahrungen durch das Studium neuster
+                    wissenschaftlicher Erkenntnisse sowie der alten Meister und deren Methoden, die er ausprobierte und
+                    die für ihn tauglich scheinenden nahm er in seinen Methodenschatz auf.</div>
+                <div class="card1"><img src="images/ecole_1.jpg" style="width: 100%; height: 100%;"></div>
+            </div>
+            <div class="cards2">
+                <div class="card2"><img src="images/ecole_2.jpg" style="width: 100%; height: 85%; padding-top: 6%;"></div>
+                <div class="card2">So entstand als Quintessenz dieser langjährigen Arbeit ein reiterliches Konzept mit
+                    einem Ausbildungsplan, der es ermöglicht, Pferde aller Rassen sehr weit auszubilden.
+                    Kernstück der Ausbildung ist der Respekt gegenüber dem Pferd. Erzwungene, bedingungslose
+                    Unterwerfung ist ausgeschlossen, deshalb verzichten wir auch auf den Einsatz von Hilfszügeln. Der
+                    Gehorsam wird über den Dialog hergestellt. Dieser Dialog wird durch eine gemeinsame Sprache möglich,
+                    die Sprache der Hilfen.<br>Die Schule der Hilfen steht am Anfang der Ausbildung. Das Ziel ist ein
+                    vielseitig ausgebildetes, jederzeit leicht an den Hilfen des Reiters stehendes Pferd.</div>
+            </div>
+            <p style="padding-top: 20%;">Andrea Walz Reitausbildung | Liebfrauenberg 5 | 35423 Lich | Tel: 06404-6577644
+                |</p>
+        </main>
+    </div>
+    <div class="cards">
+        <div class="card" style="text-align: center; font-size: 18px;">Diese Website verwendet Cookies.</div>
+        <div class="card"><a href="" class="btn1">Ok,einverstanden</a><a href="" class="btn1"
+                style="background-color: #ff8700; border: 1px solid #ff8700;">Unsere
+                Datenschutzerklärung</a></div>
+    </div>
+
+    <script>
+        const menu_toggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        menu_toggle.addEventListener('click', () => {
+            menu_toggle.classList.toggle('is-active');
+            sidebar.classList.toggle('is-active');
+        })
+    </script>
+</body>
+
+</html>

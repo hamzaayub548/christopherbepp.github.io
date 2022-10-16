@@ -1,0 +1,385 @@
+<!-- {{ define "main" }}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="text-center">
+        <img style="background-color: #590b07;" src="images/Andrea Walz Reitausbildung.png">
+        {{ with .Params.subtitle }}
+        <h2 class="text-secondary h3">{{ . }}</h2>
+        {{ end }}
+      </div>
+      {{ .Content }}
+    </div>
+  </div>
+</div>
+{{ end }} -->
+
+<html lang="en">
+
+<head>
+
+    <style>
+        h1 {
+            font-size: 45px;
+            padding-left: 10%;
+        }
+
+        p {
+            font-size: 20px;
+            padding-left: 10%;
+            line-height: 32px;
+
+        }
+
+        .menu2 {
+            text-decoration: none;
+            color: #fff;
+            font-size: 17px;
+            display: list-item;
+            list-style: none;
+            padding: 10px 20px 10px 10px;
+            border: 1px solid #280c08;
+            color: #ccb549;
+            background-color: #280c08;
+            margin-top: 4%;
+        }
+
+        .menu2:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .app {
+            display: flex;
+            min-height: 100vh;
+
+        }
+
+        .sidebar {
+            flex: 1 1 0;
+            max-width: 300px;
+            padding: 2rem 1rem;
+            background-color: #590b07;
+        }
+
+        .sidebar .menu {
+            margin: 0 -1rem;
+
+        }
+
+        .sidebar .menu .menu-item {
+            display: block;
+            padding: 1rem;
+            color: #FFF;
+            text-decoration: none;
+            transition: 0.2s linear;
+        }
+
+        .sidebar .menu .menu-item:hover,
+        .sidebar .menu .menu-item.is-active {
+            color: #ff8700;
+            background-color: #280c08;
+            border-right: 5px solid #ff8700;
+        }
+
+        .content {
+            flex: 1 1 0;
+            padding: 2rem;
+            /* height: 80rem; */
+            overflow: hidden;
+        }
+
+        .content h1 {
+            color: #cc9900;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content p {
+            color: #ccb549;
+        }
+
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 9rem;
+            right: 1.2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 99px;
+            background-color: #590b07;
+            cursor: pointer;
+        }
+
+        .hamburger {
+            position: relative;
+            top: calc(50% - 2px);
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 32px;
+        }
+
+        .hamburger>span,
+        .hamburger>span::before,
+        .hamburger>span::after {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            border-radius: 99px;
+            background-color: #FFF;
+            transition-duration: .25s;
+        }
+
+        .hamburger>span::before {
+            content: '';
+            top: -8px;
+        }
+
+        .hamburger>span::after {
+            content: '';
+            top: 8px;
+        }
+
+        .menu-toggle.is-active .hamburger>span {
+            transform: rotate(45deg);
+        }
+
+        .menu-toggle.is-active .hamburger>span::before {
+            top: 0;
+            transform: rotate(0deg);
+        }
+
+        .menu-toggle.is-active .hamburger>span::after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                max-width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .content {
+                padding-top: 8rem;
+            }
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -340px;
+                height: 100vh;
+                width: 100%;
+                max-width: 300px;
+                transition: 0.2s linear;
+            }
+
+            .sidebar.is-active {
+                left: 0;
+            }
+        }
+
+        .hamzas {
+            background-color: black;
+            width: 100%;
+            margin: 0 auto;
+            display: grid;
+            box-sizing: border-box;
+        }
+
+        .hamza {
+            background-color: black;
+            color: white;
+            padding: 1rem;
+            height: 3.4rem;
+            margin-top: 1%;
+
+        }
+
+        @media (min-width: 600px) {
+            .hamzas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .hamzabtn1 {
+            text-decoration: none;
+            color: white;
+            background-color: #5cb85c;
+            border: 1px solid #5cb85c;
+            padding: 10px 10px 10px 10px;
+            margin: 0px 10px 0px 10px;
+
+        }
+        
+        .gallery {
+            background-color: #280c08;
+            color: white;
+            padding: 1rem;
+            height: 10rem;
+            text-align: center;
+        }
+
+        .gallerys {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1rem;
+            margin-top: 5%;
+        }
+
+        @media (min-width: 900px) {
+            .gallerys {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body style="padding: 0px; margin: 0px; background-color: #f4e07d;">
+    <div style="background-color: #590b07">
+        <img style="width: 92%; margin-left: 4%; margin-right: 4%;" src="images/Andrea Walz Reitausbildung.png">
+    </div>
+    <div class="app" style="width: 92%; margin-right: 4%; margin-left: 4%;">
+        <div class="menu-toggle" style="z-index: 2;">
+            <div class="hamburger">
+                <span></span>
+            </div>
+        </div>
+        <aside class="sidebar" style="z-index: 2;">
+            <nav class="menu" style="font-family: 'Times New Roman', Times, serif;">
+                <a href="http://localhost:1313/" class="menu-item">Home</a>
+                <a href="http://localhost:1313/die-ecole-de-legerete.html" class="menu-item">Die École de Légèreté</a>
+                <a href="#" class="menu-item">Über mich</a>
+                <a href="#" class="menu-item">Unterricht</a>
+                <a href="#" class="menu-item is-active">Fotogalerie</a>
+                <a href="#" class="menu-item">Termine</a>
+                <a href="#" class="menu-item">Interessantes</a>
+                <a href="#" class="menu-item">Links</a>
+                <a href="#" class="menu-item">Kontakt</a>
+                <a href="#" class="menu-item">Datenschutz</a>
+                <a href="#" class="menu-item">Impressum</a>
+            </nav>
+
+        </aside>
+        <main class="content" style="background-color: #280c08;">
+            <h1 style="font-family: 'Times New Roman', Times, serif;">"Wenn der Mensch je eine große Eroberung gemacht hat, so ist es die, daß er sich das Pferd zum Freunde
+                gewonnen hat."
+
+                (Comte de Buffon)
+            </h1>
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true"
+                style="height: 30rem; z-index: 1;">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                        class="active" aria-current="true" aria-label="Slide 5"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+                        aria-label="Slide 6"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6"
+                        aria-label="Slide 7"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7"
+                        aria-label="Slide 8"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8"
+                        class="active" aria-current="true" aria-label="Slide 9"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9"
+                        aria-label="Slide 10"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="10"
+                        aria-label="Slide 11"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img style="height: 30rem;" src="images/01.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img style="height: 30rem;" src="images/23.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img style="height: 30rem;" src="images/02.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img style="height: 30rem;" src="images/07.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img style="height: 30rem;" src="images/08.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img style="height: 30rem;" src="images/13.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item active">
+                        <img style="height: 30rem;" src="images/12.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img style="height: 30rem;" src="images/17.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img style="height: 30rem;" src="images/05.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img style="height: 30rem;" src="images/03.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img style="height: 30rem;" src="images/20.jpg" class="d-block w-100">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <hr style="color: white;">
+            <div class="gallerys">
+                <div class="gallery"><img style="height: 8rem; width: 8rem;" src="images/DSC_0045.jpg"></div>
+                <div class="gallery"><img style="height: 8rem; width: 8rem;" src="images/DSC_0075.jpg"></div>
+                <div class="gallery"><img style="height: 8rem; width: 8rem;" src="images/DSC_0083.jpg"></div>
+                <div class="gallery"><img style="height: 8rem; width: 8rem;" src="images/DSC_0098.jpg"></div>
+                <div class="gallery"><img style="height: 8rem; width: 8rem;" src="images/DSC_0398.jpg"></div>
+            </div>
+            <p style="padding-top: 20%; font-family: 'Times New Roman', Times, serif;">Andrea Walz Reitausbildung | Liebfrauenberg 5 | 35423 Lich | Tel: 06404-6577644
+                |</p>
+        </main>
+    </div>
+    <div class="hamzas">
+        <div class="hamza" style="text-align: center; font-size: 18px;">Diese Website verwendet Cookies.</div>
+        <div class="hamza"><a href="" class="hamzabtn1">Ok,einverstanden</a><a href="" class="hamzabtn1"
+                style="background-color: #ff8700; border: 1px solid #ff8700;">Unsere
+                Datenschutzerklärung</a></div>
+    </div>
+
+    <script>
+        const menu_toggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        menu_toggle.addEventListener('click', () => {
+            menu_toggle.classList.toggle('is-active');
+            sidebar.classList.toggle('is-active');
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
